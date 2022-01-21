@@ -5,22 +5,6 @@
 
 //const int AM_COMMON::bitboard::BYTE_SIZE = 8 * sizeof(byte_t);
 
-void AM_COMMON::bitboard::set_t(integ_t bit_index)
-{
-	int arr_ind =	arr_index(bit_index);
-	int rem =		arr_rem(bit_index);
-
-	arr[arr_ind] = control(rem) | arr[arr_ind];
-}
-
-void AM_COMMON::bitboard::set_f(integ_t bit_index)
-{
-	int arr_ind = arr_index(bit_index);
-	int rem = arr_rem(bit_index);
-
-	arr[arr_ind] = ~control(rem) & arr[arr_ind];
-}
-
 void AM_COMMON::bitboard::reverse_arr()
 {
 	//TODO: fix: only works for bitboards with bitcount == 0 mod 8

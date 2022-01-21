@@ -19,8 +19,5 @@ namespace AM_common
 		struct unref<t&> { using eval = t; };
 		template<typename t>
 		struct unref<t&&> { using eval = t; };
-
-		using pointered = int*****&&;
-		using unpointered = rootty<pointered>::eval;
 	}
 }

@@ -31,8 +31,20 @@ namespace AM_COMMON
 		inline byte_t get_byte(integ_t x, integ_t y) const		{ return get_byte(arr_index(x, y)); }
 		inline byte_t get_bit(integ_t bit_index) const			{ return control(bit_index % BYTE_SIZE) & arr[arr_index(bit_index)]; }
 		inline byte_t get_bit(integ_t x, integ_t y) const		{ return get_bit(bit_index(x, y)); }
-		void set_t(integ_t bit_index);
-		void set_f(integ_t bit_index);
+		void set_t(integ_t bit_index)
+		{
+			int arr_ind = arr_index(bit_index);
+			int rem = arr_rem(bit_index);
+
+			arr[arr_ind] = control(rem) | arr[arr_ind];
+		}
+		void set_f(integ_t bit_index)
+		{
+			int arr_ind = arr_index(bit_index);
+			int rem = arr_rem(bit_index);
+
+			arr[arr_ind] = ~control(rem) & arr[arr_ind];
+		}
 		void set(integ_t bit_index, bool val) { if (val) set_t(bit_index); else set_f(bit_index); }
 		void set(integ_t x, integ_t y, bool val) { set(bit_index(x, y), val); }
 		inline void set_byte(integ_t arr_index, byte_t byte) const { arr[arr_index] = byte; }
