@@ -19,5 +19,8 @@ namespace AM_common
 		struct unref<t&> { using eval = t; };
 		template<typename t>
 		struct unref<t&&> { using eval = t; };
+
+		template<typename t, typename _rootty = typename rootty<t>::eval> struct is_const : std::false_type {};
+		template<typename t1, typename t2> struct is_const<t1, const t2> : std::true_type {};
 	}
 }
