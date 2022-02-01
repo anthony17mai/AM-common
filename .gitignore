@@ -19,3 +19,6 @@ AM_lib/Debug/AM_lib.vcxproj.FileListAbsolute.txt
 *.sln
 *.dll
 *.ilk
+.vs/AM-common/v16/.suo
+*.opendb
+AM_headers/.vs/AM_headers/v16/.suo

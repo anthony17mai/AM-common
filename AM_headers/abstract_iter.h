@@ -2,6 +2,7 @@
 
 #include <typeinfo>
 #include "rootty.h"
+#include <iterator>
 
 namespace AM_common
 {
