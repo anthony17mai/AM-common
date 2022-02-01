@@ -20,23 +20,23 @@ namespace AM_common
 	template<typename integ, integ... ns>
 	struct m_i_arr;
 
-	template<typename integ, integ i, integ... ns>
-	struct m_i_arr<integ, i, ns...>
+	template<typename integ, integ id, integ... ns>
+	struct m_i_arr<integ, id, ns...>
 	{
-		using eval = std::integral_constant<integ, i>;
+		using eval = std::integral_constant<integ, id>;
 		using lower = m_i_arr<integ, ns...>;
 	};
-	template<typename integ, integ i>
-	struct m_i_arr<integ, i>
+	template<typename integ, integ id>
+	struct m_i_arr<integ, id>
 	{
-		using eval = std::integral_constant<integ, i>;
+		using eval = std::integral_constant<integ, id>;
 		using lower = m_stopper<integ>;	//stopper - better than void because it is able to pass a typename
 	};
 
-	template<typename arr, size_t i>
+	template<typename arr, size_t id>
 	struct m_get
 	{
-		using eval = typename m_get<typename arr::lower, i - 1>::eval;
+		using eval = typename m_get<typename arr::lower, id - 1>::eval;
 	};
 	template<typename arr>
 	struct m_get<arr, 0>
@@ -112,8 +112,8 @@ namespace AM_common
 
 		box_iter(_val_ty* ptr) : ptr(ptr) {}
 	};
-	template<typename _val_ty, typename integ, integ i>
-	struct box_iter<_val_ty, m_i_arr<integ, i>>
+	template<typename _val_ty, typename integ, integ id>
+	struct box_iter<_val_ty, m_i_arr<integ, id>>
 	{
 		//finally we end the recursion
 		using lower = _val_ty;

@@ -1,4 +1,3 @@
-#include "pch.h"
 #include "CppUnitTest.h"
 #include "casefreecmp.h"
 #include "str_split.h"
@@ -79,21 +78,21 @@ namespace AMtest
 			double* _arr = res.begin().ptr;
 
 			//create a 2 x 3 x 5 multiplication table
-			for (int i = 0; i < 2; i++)
+			for (int id = 0; id < 2; id++)
 			{
 				for (int j = 0; j < 3; j++)
 				{
 					for (int k = 0; k < 5; k++)
 					{
-						res[i][j][k] = i * j * k;
+						res[id][j][k] = (double)id * j * k;
 					}
 				}
 			}
 
 			//compare each element of the array
-			for (int i = 0; i < 30; i++)
+			for (int id = 0; id < 30; id++)
 			{
-				Assert::AreEqual(expected[i], _arr[i]);
+				Assert::AreEqual(expected[id], _arr[id]);
 			}
 		}
 	};

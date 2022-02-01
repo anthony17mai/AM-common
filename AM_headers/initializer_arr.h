@@ -16,8 +16,8 @@ struct wrapper { const static T eval = val; };
 
 template<typename ts>
 struct increment;
-template<int i>
-struct increment<meta_number<i>> { using eval = meta_number<i + 1>; };
+template<int id>
+struct increment<meta_number<id>> { using eval = meta_number<id + 1>; };
 
 //nodefault
 template<typename T, typename arr, T... vals>

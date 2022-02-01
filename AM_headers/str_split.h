@@ -12,14 +12,14 @@ namespace AM_common
 	//new strings as opposed to shallow coppies - which somtimes might be preferable
 	void str_split(const std::string& str, std::vector<std::string>& out, char delim = ' ')
 	{
-		size_t i = 0;
+		size_t id = 0;
 
 		do
 		{
 			//get the substring
-			size_t j = str.find(delim, i);
-			std::string s = str.substr(i, j - i);
-			i = j + 1;	//intended overflow
+			size_t j = str.find(delim, id);
+			std::string s = str.substr(id, j - id);
+			id = j + 1;	//intended overflow
 
 			//if substring is empty then skip
 			if (str.length() == 0)
@@ -32,7 +32,7 @@ namespace AM_common
 				out.push_back(s);
 				continue;
 			}
-		} while (i != 0);
+		} while (id != 0);
 	}
 
 	//finds the first occurance of delim and splits the string excluding the delimeter
@@ -49,12 +49,12 @@ namespace AM_common
 
 	std::string _trim_front(const std::string& str, char delim)
 	{
-		size_t i = 0;
-		while (i < str.size() && str[i] == delim)
+		size_t id = 0;
+		while (id < str.size() && str[id] == delim)
 		{
-			i++;
+			id++;
 		}
-		return str.substr(i);
+		return str.substr(id);
 	}
 	std::string _trim_back(const std::string& str, char delim)
 	{

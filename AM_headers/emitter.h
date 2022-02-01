@@ -65,11 +65,11 @@ namespace AM_common
 		//remove removal entries
 		void _evict()
 		{
-			for (size_t i = entries.size() - 1; i < entries.size(); i--)
+			for (size_t id = entries.size() - 1; id < entries.size(); id--)
 			{
-				if (entries[i].removal)
+				if (entries[id].removal)
 				{
-					entries.erase(entries.begin() + i);
+					entries.erase(entries.begin() + id);
 				}
 			}
 			this->removal = false;

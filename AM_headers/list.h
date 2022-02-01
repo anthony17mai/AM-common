@@ -36,9 +36,9 @@ namespace AM_COMMON
 		{
 			//delete the array
 			//this removes any memory leak
-			for (int i = 0; i < count; i++)
+			for (int id = 0; id < count; id++)
 			{
-				delete arr[i];
+				delete arr[id];
 			}
 			delete[] arr;
 		}

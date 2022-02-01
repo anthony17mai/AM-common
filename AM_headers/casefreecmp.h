@@ -15,10 +15,10 @@ namespace AM_common
             const char* l = _Left.c_str();
             const char* r = _Right.c_str();
             char lc = '\0';
-            int i = 0;
-            for (; (lc = l[i]) != '\0'; i++)
+            int id = 0;
+            for (; (lc = l[id]) != '\0'; id++)
             {
-                char rc = r[i];
+                char rc = r[id];
                 if (isupper(lc)) lc = (char)tolower(lc);
                 if (isupper(rc)) rc = (char)tolower(rc);
                 if (lc != rc)
@@ -29,7 +29,7 @@ namespace AM_common
                         return false;
                 }
             }
-            if ('\0' < r[i])
+            if ('\0' < r[id])
                 return true;
             else
                 return false;
@@ -51,10 +51,10 @@ namespace AM_common
             if (_Left.size() != _Right.size()) return false;
 
             bool eq = true;
-            for (size_t i = 0; i < _Left.size(); i++)
+            for (size_t id = 0; id < _Left.size(); id++)
             {
-                char lc = l[i];
-                char rc = r[i];
+                char lc = l[id];
+                char rc = r[id];
                 lc = (char)tolower(lc);
                 rc = (char)tolower(rc);
 
@@ -80,9 +80,9 @@ namespace AM_common
         inline size_t operator()(const std::string& str)
         {
             std::string lower(str.size(), 0);
-            for (size_t i = 0; i < str.size(); i++)
+            for (size_t id = 0; id < str.size(); id++)
             {
-                lower[i] = (char)tolower(str[i]);
+                lower[id] = (char)tolower(str[id]);
             }
             return hasher()(lower);
         }

@@ -16,10 +16,10 @@ namespace meta
 	template<typename... t1, typename... t2>
 	struct arr_concat<meta_arr<t1...>, meta_arr<t2...>> { using eval = meta_arr<t1..., t2...>; };
 
-	template<typename ts, int i, typename arr = meta_arr<>>
+	template<typename ts, int id, typename arr = meta_arr<>>
 	struct arr_repeat;
-	template<typename ts, int i, typename... t1>
-	struct arr_repeat<ts, i, meta_arr<t1...>> { using eval = typename arr_push<typename arr_repeat<ts, i-1>::eval, ts>::eval; };
+	template<typename ts, int id, typename... t1>
+	struct arr_repeat<ts, id, meta_arr<t1...>> { using eval = typename arr_push<typename arr_repeat<ts, id-1>::eval, ts>::eval; };
 	template<typename ts, typename arr>
 	struct arr_repeat<ts, 0, arr> { using eval = arr; };
 

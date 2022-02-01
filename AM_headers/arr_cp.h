@@ -5,18 +5,18 @@ namespace AM_common
 	template<typename ts, size_t arrlen>
 	void inline arr_cp(ts* from, ts* to)
 	{
-		for (size_t i = 0; i < arrlen; i++)
+		for (size_t id = 0; id < arrlen; id++)
 		{
-			to[i] = from[i];
+			to[id] = from[id];
 		}
 	}
 
 	template<typename ts>
 	void inline arr_cp(ts* from, ts* to, size_t arrlen)
 	{
-		for (size_t i = 0; i < arrlen; i++)
+		for (size_t id = 0; id < arrlen; id++)
 		{
-			to[i] = from[i];
+			to[id] = from[id];
 		}
 	}
 

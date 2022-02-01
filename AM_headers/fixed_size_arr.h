@@ -16,10 +16,10 @@ namespace AM_common
 		static constexpr inline fixed_size_arr make_empty() { return fixed_size_arr(); }
 
 		size_t size() const { return _size; }
-		ts& operator[](size_t i) { return arr[i]; }
-		const ts& operator[](size_t i) const { return arr[i]; }
-		ts& at(size_t i) { return (*this)[i]; }
-		const ts& at(size_t i) const { return (*this)[i]; }
+		ts& operator[](size_t id) { return arr[id]; }
+		const ts& operator[](size_t id) const { return arr[id]; }
+		ts& at(size_t id) { return (*this)[id]; }
+		const ts& at(size_t id) const { return (*this)[id]; }
 
 		fixed_size_arr(size_t len) : _size(len), arr(new ts[len])
 		{ }
@@ -27,9 +27,9 @@ namespace AM_common
 		//cp arr
 		fixed_size_arr(const fixed_size_arr& o) : fixed_size_arr(o.size())
 		{
-			for (size_t i = 0; i < o.size(); i++)
+			for (size_t id = 0; id < o.size(); id++)
 			{
-				this->at(i) = o[i];
+				this->at(id) = o[id];
 			}
 		}
 
@@ -54,8 +54,8 @@ namespace AM_common
 		static constexpr inline fixed_size_arr_ronly make_empty() { return fixed_size_arr_ronly(); }
 
 		size_t size() const { return _size; }
-		const ts& operator[](size_t i) const { return arr[i]; }
-		const ts& at(size_t i) const { return (*this)[i]; }
+		const ts& operator[](size_t id) const { return arr[id]; }
+		const ts& at(size_t id) const { return (*this)[id]; }
 
 		fixed_size_arr_ronly(size_t len, const ts* existing) : _size(len), arr(existing) { }
 
