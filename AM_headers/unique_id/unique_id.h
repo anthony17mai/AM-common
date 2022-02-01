@@ -2,17 +2,27 @@
 
 namespace AM_common {namespace unique_id{
 
-	template<typename id_label>
-	struct labeler
-	{
-		static int i = 0;
-
-		static int get_id() { return i++; }
-	};
-
-	template<typename id_label>
+	template<typename id_tag, typename id_type = size_t>
 	struct unique_label
 	{
-		static int label = labeler<id_label>::get_id();
+		static id_type lab_val = 0;
+
+		id_type i;
+
+		bool operator==(unique_label<id_tag, id_type> o) { return i == o.i; }
+
+	private:
+		unique_label() : i(lab_val++) {}
+
+		template<typename t>
+		friend struct type_label<t, id_tag, id_type>;
+	};
+
+	template<typename t, typename id_tag, typename id_type = size_t>
+	struct type_label
+	{
+		static unique_label<id_tag, id_type> label;
+
+		unique_label<id_tag, id_type> local_label;
 	};
 } }
