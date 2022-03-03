@@ -6,7 +6,7 @@
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace AMtest
+namespace AM_test
 {
 	TEST_CLASS(CASEFREECMP)
 	{

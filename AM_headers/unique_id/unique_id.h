@@ -25,7 +25,11 @@ namespace AM_common {namespace unique_id{
 	{
 		using label_type = unique_label<id_tag, id_type>;
 		static inline unique_label<id_tag, id_type> label = unique_label<id_tag, id_type>::make_label();
+	};
 
-		unique_label<id_tag, id_type> local_label = label;
+	template<typename t, typename id_tag, typename id_type = size_t>
+	struct label : type_label<t, id_tag, id_type>
+	{
+		unique_label<id_tag, id_type> id = type_label<t, id_tag, id_type>::label;
 	};
 } }
